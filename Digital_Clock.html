@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+   <style>
+    *
+    {
+        margin: 0;
+        padding: 0;
+        
+    }
+    body{
+        box-sizing: border-box;display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-color: #030e0e  ;
+
+    }
+    .container
+    {
+        background-color: rgb(42, 178, 173);
+        border-radius: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 110vh;
+        height: 60vh;
+
+    }
+    .container:hover{
+        box-shadow: 0 0 100px cyan;
+    }
+
+  
+    .box
+    {
+        background-color: rgb(18, 19, 19);
+        padding: 10px;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90vh;
+        height: 30vh;
+        border-radius: 20px;
+
+    }
+    .box span
+    {
+        border: 2px solid rgb(78, 66, 89);
+        padding: 5px;
+        margin: 10px;
+        border-radius: 9px;
+        width: 35vh;
+        height: 16vh;
+        display:  flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    .box span:hover{
+        box-shadow: 0 0 50px cyan ;
+    }
+    span b
+    {
+        font-size: x-large;
+        color: #fff     ;
+    }
+    span b:hover{
+        color: rgb(44, 178, 169);
+    }
+   </style>
+</head>
+<body>
+
+    <div class="container" >
+        <div class="box">
+            <span><b id = "cont"></b></span>
+            <span> <b id="time">00.00</b></span>
+        </div>
+    </div>
+
+    <script>
+        let time = document.getElementById("time");
+        function displayTime()
+        {
+            let date = new Date();
+
+            // let hh = date.getHours();
+            // let mm = date.getMinutes();
+            // let ss = date.getSeconds();
+
+            let am_pm = date.toLocaleTimeString();
+            
+            //   time.innerHTML = `${hh}`+":" + `${ mm }` +":" + `${ss}` + `${am_pm}`;
+
+            time.innerHTML = `${am_pm}`;
+        }
+        setInterval(displayTime,1000)
+
+        let calander = new Date();
+        let calan = calander.toDateString();
+        document.getElementById("cont").innerHTML = calan;
+
+    </script>
+</body>
+</html>
